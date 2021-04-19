@@ -1,0 +1,68 @@
+.editor:global(.Black) {
+  background-color: #252a31;
+}
+
+.editor:global(.Blue) {
+  background-color: #006cff;
+}
+
+.editor:global(.Purple) {
+  background-color: #b678ff;
+}
+
+.editor:global(.Yellow) {
+  background-color: #ffe761;
+}
+
+.editor:global(.Red) {
+  background-color: #f45e6d;
+}
+
+.editor:global(.Green) {
+  background-color: #61dea4;
+}
+
+.editor {
+  color: white;
+  padding-bottom: 20px;
+}
+
+.subtitle {
+  opacity: 0.5;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.inner {
+  margin: 0 60px;
+}
+
+.prevList {
+  margin: 0 8px;
+  height: 24px;
+  width: 24px;
+  background: url(../../assets/images/Lists.svg) no-repeat center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.delete {
+  margin: 0 8px;
+  height: 24px;
+  width: 24px;
+  background: url(../../assets/images/Delete.svg) no-repeat center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-left: auto;
+  margin-right: 8px;
+}

@@ -1,0 +1,31 @@
+.todoInput {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 60px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.input {
+  color: white;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+.add {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin: 16px;
+  background: url(../../assets/images/Add.svg) no-repeat;
+  background-position: 2px 2px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

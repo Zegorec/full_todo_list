@@ -1,0 +1,32 @@
+{
+  "todos": [
+    {
+      "id": "todo__58923",
+      "content": "first task",
+      "status": false,
+      "category": "All",
+      "colors": "Blue"
+    },
+    {
+      "id": "todo__42923",
+      "content": "second task",
+      "status": false,
+      "category": "All",
+      "colors": "Blue"
+    },
+    {
+      "id": "todo__58268",
+      "content": "third task",
+      "status": true,
+      "category": "All",
+      "colors": "Blue"
+    }
+  ],
+  "categories": [
+    {
+      "id": "category__20398",
+      "category": "All",
+      "colors": "Blue"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+.color {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  margin-right: 16px;
+  margin-left: auto;
+}
+
+.color:global(.Black)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #252a31;
+}
+
+.color:global(.Blue)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #006cff;
+}
+
+.color:global(.Purple)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #b678ff;
+}
+
+.color:global(.Yellow)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ffe761;
+}
+
+.color:global(.Red)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #f45e6d;
+}
+
+.color:global(.Green)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #61dea4;
+}
+
+.todo {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 60px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.todo::before {
+  content: '';
+  background-color: #dadada;
+  position: absolute;
+  width: 315px;
+  height: 1px;
+  bottom: 0;
+  right: 0;
+}
+
+.myCheckbox {
+  margin: 18px;
+  width: 28px;
+  height: 28px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+}
+
+.toggle::before {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #dadada;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.checkbox:checked + .toggle::before {
+  border: none;
+  background: url(../../assets/images/Done.svg);
+}
+
+.text {
+  max-width: 271px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.text.white {
+  color: white !important;
+}
+
+.text.black {
+  color: #252a31;
+}
+
+.delete {
+  margin-right: 16px;
+  height: 24px;
+  width: 24px;
+  background: url(../../assets/images/Trash.svg) no-repeat center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.edit {
+  margin: 0 8px;
+  height: 24px;
+  width: 24px;
+  background: url(../../assets/images/Edit.svg) no-repeat center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.inner {
+  margin-left: auto;
+}
