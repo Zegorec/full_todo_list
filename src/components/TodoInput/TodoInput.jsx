@@ -2,7 +2,7 @@ import s from './TodoInput.module.css';
 
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../redux/todos/todos';
+import { addTodo } from '../../redux/todos/todosAction';
 
 export const TodoInput = ({ category, colors }) => {
   const dispatch = useDispatch();

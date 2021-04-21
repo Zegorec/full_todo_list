@@ -3,8 +3,8 @@ import s from './Categories.module.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Category } from '../Category/Category';
-import { addCategory } from '../../redux/categories/categories';
-import { choseTodos } from '../../redux/todos/todos';
+import { addCategory } from '../../redux/categories/categoriesAction';
+import { choseTodos } from '../../redux/todos/todosAction';
 
 export const Categories = ({ categories, todos }) => {
   const dispatch = useDispatch();

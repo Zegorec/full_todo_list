@@ -2,31 +2,34 @@ import './App.css';
 import { TodoList } from './components/TodoList/TodoList';
 import { EditorCategory } from './components/EditorCategory/EditorCategory';
 import { Route } from 'react-router-dom';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataSelector } from './redux/categories/categories';
-import { loadCategories } from './redux/categories/categories';
-import { loadTodos } from './redux/todos/todos';
+import { dataSelector } from './redux/categories/categoriesSelector';
+import { todosRequest } from './redux/todos/todosAction';
+import { categoriesRequest } from './redux/categories/categoriesAction';
 
 function App() {
   const dispatch = useDispatch();
-  const { todos, sort, categories, chosenCategory } = useSelector(dataSelector);
+  const {
+    todos,
+    isLoadingTodos,
+    sort,
+    categories,
+    chosenCategory,
+    isLoadingCategories,
+  } = useSelector(dataSelector);
 
-  useEffect(() => {
-    dispatch(loadTodos(JSON.parse(localStorage.getItem('todos'))));
-    dispatch(loadCategories(JSON.parse(localStorage.getItem('categories'))));
-  }, [dispatch]);
+  const fetchTodos = () => {
+    dispatch(todosRequest());
+    dispatch(categoriesRequest());
+  };
 
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
-
-  useEffect(() => {
-    localStorage.setItem('categories', JSON.stringify(categories));
-  }, [categories]);
-
-  return (
+  return isLoadingTodos && isLoadingCategories ? (
     <div className="App">
+      <h1>ABOBA</h1>
+    </div>
+  ) : (
+    <div className="App">
+      <button onClick={fetchTodos}>Получить данные</button>
       <Route path="/" exact>
         <TodoList
           todos={

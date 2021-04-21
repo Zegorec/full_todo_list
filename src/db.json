@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": "todo__14557",
+      "content": "Learn redux-saga",
+      "status": false,
+      "category": "Home",
+      "colors": "Red"
+    },
+    {
+      "id": "todo__34912",
+      "content": "Learn workers, watchers, effects",
+      "status": false,
+      "category": "Home",
+      "colors": "Red"
+    },
+    {
+      "id": "todo__47869",
+      "content": "I don't work, idiot",
+      "status": false,
+      "category": "Work",
+      "colors": "Green"
+    }
+  ],
+  "categories": [
+    { "id": "category__51870", "category": "Home", "colors": "Red" },
+    { "id": "category__74241", "category": "Work", "colors": "Green" }
+  ]
+}

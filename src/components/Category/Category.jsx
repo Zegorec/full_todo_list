@@ -3,8 +3,8 @@ import s from './Category.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { choseCategory } from '../../redux/categories/categories';
-import { choseTodos } from '../../redux/todos/todos';
+import { choseCategory } from '../../redux/categories/categoriesAction';
+import { choseTodos } from '../../redux/todos/todosAction';
 
 export const Category = ({ category, colors, total, id }) => {
   const dispatch = useDispatch();

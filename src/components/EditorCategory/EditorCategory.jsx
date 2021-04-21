@@ -4,7 +4,7 @@ import React from 'react';
 import { Todo } from '../Todo/Todo';
 import { TodoInput } from '../TodoInput/TodoInput';
 import { Link } from 'react-router-dom';
-import { deleteAll } from '../../redux/categories/categories';
+import { deleteAll } from '../../redux/categories/categoriesAction';
 import { useDispatch } from 'react-redux';
 
 export const EditorCategory = ({ todos, chosenCategory }) => {
@@ -13,6 +13,7 @@ export const EditorCategory = ({ todos, chosenCategory }) => {
   const onClickDelete = () => {
     dispatch(deleteAll(chosenCategory[0].category));
   };
+
   return (
     <div className={`${s.editor} ${chosenCategory[0].colors}`}>
       <div className={s.wrapper}>

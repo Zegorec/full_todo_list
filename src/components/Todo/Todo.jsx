@@ -2,8 +2,8 @@ import s from './Todo.module.css';
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { doneTodo } from '../../redux/todos/todos';
-import { deleteTodo } from '../../redux/todos/todos';
+import { doneTodo } from '../../redux/todos/todosAction';
+import { deleteTodo } from '../../redux/todos/todosAction';
 
 export const Todo = ({ id, content, status, colors, editor }) => {
   const dispatch = useDispatch();
