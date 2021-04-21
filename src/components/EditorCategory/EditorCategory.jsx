@@ -11,7 +11,7 @@ export const EditorCategory = ({ todos, chosenCategory }) => {
   const dispatch = useDispatch();
 
   const onClickDelete = () => {
-    dispatch(deleteAll(chosenCategory[0].category));
+    dispatch(deleteAll(chosenCategory[0].id));
   };
 
   return (
@@ -38,11 +38,11 @@ export const EditorCategory = ({ todos, chosenCategory }) => {
         </div>
       </div>
       <TodoInput
-        category={chosenCategory[0].category}
+        category={chosenCategory[0].id}
         colors={chosenCategory[0].colors}
       />
       {todos
-        .filter((elem) => elem.category === chosenCategory[0].category)
+        .filter((elem) => elem.category === chosenCategory[0].id)
         .map((elem) => {
           return (
             <Todo

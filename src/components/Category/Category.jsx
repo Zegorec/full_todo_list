@@ -10,7 +10,7 @@ export const Category = ({ category, colors, total, id }) => {
   const dispatch = useDispatch();
 
   const onClickCategory = () => {
-    dispatch(choseTodos(category));
+    dispatch(choseTodos(id));
   };
 
   const onClickMore = (e) => {

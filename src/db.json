@@ -4,21 +4,21 @@
       "id": "todo__14557",
       "content": "Learn redux-saga",
       "status": false,
-      "category": "Home",
+      "category": "category__51870",
       "colors": "Red"
     },
     {
       "id": "todo__34912",
       "content": "Learn workers, watchers, effects",
       "status": false,
-      "category": "Home",
+      "category": "category__51870",
       "colors": "Red"
     },
     {
       "id": "todo__47869",
       "content": "I don't work, idiot",
       "status": false,
-      "category": "Work",
+      "category": "category__74241",
       "colors": "Green"
     }
   ],

@@ -23,7 +23,7 @@ export const categoriesReducer = (state = initStore, action) => {
     return {
       ...state,
       categories: [
-        ...state.categories.filter((elem) => elem.category !== action.payload),
+        ...state.categories.filter((elem) => elem.id !== action.payload),
       ],
     };
   }
