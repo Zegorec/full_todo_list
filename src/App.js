@@ -7,13 +7,13 @@ import { categoriesSelector } from './redux/categories/categoriesSelector';
 import { todosSelector } from './redux/todos/todosSelector';
 import { todosRequest } from './redux/todos/todosAction';
 import { categoriesRequest } from './redux/categories/categoriesAction';
+import { useEffect } from 'react';
 
 function App() {
   const dispatch = useDispatch();
   const { categories, chosenCategory, isLoadingCategories } = useSelector(
     categoriesSelector
   );
-
   const { todos, isLoadingTodos, sort } = useSelector(todosSelector);
 
   const fetchTodos = () => {

@@ -1,7 +1,7 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
-import { todosSuccess, actions } from './todosAction';
+import { todosSuccess, actions, todosRequest } from './todosAction';
 
 function* fetchTodos() {
   const payload = yield axios
@@ -10,6 +10,33 @@ function* fetchTodos() {
   yield put(todosSuccess(payload));
 }
 
+function* postTodos(action) {
+  yield axios.post('http://localhost:3001/todos', action.payload);
+  yield put(todosRequest());
+}
+
+function* deleteTodos(action) {
+  yield axios.delete(`http://localhost:3001/todos/${action.payload}`);
+  yield put(todosRequest());
+}
+
+function* putTodos(action) {
+  yield axios.put(
+    `http://localhost:3001/todos/${action.payload.id}`,
+    action.payload
+  );
+  yield put(todosRequest());
+}
+
+function* deleteAllTodos(action) {
+  yield axios.delete(`http://localhost:3001/todos/${action.payload}`);
+  yield put(todosRequest());
+}
+
 export function* todosWatcher() {
   yield takeEvery(actions.TODOS_REQUEST, fetchTodos);
+  yield takeEvery(actions.ADD, postTodos);
+  yield takeEvery(actions.DELETE, deleteTodos);
+  yield takeEvery(actions.DONE, putTodos);
+  yield takeEvery(actions.DELETEALL, deleteAllTodos);
 }

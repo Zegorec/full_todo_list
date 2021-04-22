@@ -16,6 +16,7 @@ export const Todos = ({ todos, sort }) => {
             status={elem.status}
             colors={elem.colors}
             editor={0}
+            category={elem.category}
           />
         );
       })}

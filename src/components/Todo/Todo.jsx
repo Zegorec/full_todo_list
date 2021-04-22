@@ -5,11 +5,19 @@ import { useDispatch } from 'react-redux';
 import { doneTodo } from '../../redux/todos/todosAction';
 import { deleteTodo } from '../../redux/todos/todosAction';
 
-export const Todo = ({ id, content, status, colors, editor }) => {
+export const Todo = ({ id, content, status, colors, editor, category }) => {
   const dispatch = useDispatch();
 
   const onClickDone = () => {
-    dispatch(doneTodo(id));
+    dispatch(
+      doneTodo({
+        id: id,
+        content: content,
+        status: !status,
+        category: category,
+        colors: colors,
+      })
+    );
   };
 
   const onClickDelete = () => {
