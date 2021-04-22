@@ -2,29 +2,24 @@ import { takeEvery, put, call } from 'redux-saga/effects';
 import axios from 'axios';
 
 import { todosSuccess, actions, todosRequest } from './todosAction';
-
+import { requestAxios } from '../../API/api';
 function* fetchTodos() {
-  const payload = yield axios
-    .get('http://localhost:3001/todos')
-    .then((resp) => resp.data);
+  const payload = yield requestAxios('get', 'todos').then((resp) => resp.data);
   yield put(todosSuccess(payload));
 }
 
 function* postTodos(action) {
-  yield axios.post('http://localhost:3001/todos', action.payload);
+  yield requestAxios('post', 'todos', null, action.payload);
   yield put(todosRequest());
 }
 
 function* deleteTodos(action) {
-  yield axios.delete(`http://localhost:3001/todos/${action.payload}`);
+  yield requestAxios('delete', 'todos', action.payload);
   yield put(todosRequest());
 }
 
 function* putTodos(action) {
-  yield axios.put(
-    `http://localhost:3001/todos/${action.payload.id}`,
-    action.payload
-  );
+  yield requestAxios('put', 'todos', action.payload.id, action.payload);
   yield put(todosRequest());
 }
 
@@ -32,9 +27,7 @@ function* deleteAllTodos(action) {
   const todos = yield action.payload.todos.filter(
     (elem) => elem.category === action.payload.id
   );
-  yield todos.map((elem) =>
-    axios.delete(`http://localhost:3001/todos/${elem.id}`)
-  );
+  yield todos.map((elem) => requestAxios('delete', 'todos', elem.id));
   yield put(todosRequest());
 }
 

@@ -5,21 +5,23 @@ import {
   actions,
   categoriesRequest,
 } from './categoriesAction';
+import { requestAxios } from '../../API/api';
 
 function* fetchCategories() {
-  const payload = yield axios
-    .get('http://localhost:3001/categories')
-    .then((resp) => resp.data);
+  const payload = yield requestAxios('get', 'categories').then(
+    (resp) => resp.data
+  );
   yield put(categoriesSuccess(payload));
 }
 
 function* postCategories(action) {
-  yield axios.post('http://localhost:3001/categories', action.payload);
+  yield requestAxios('post', 'categories', null, action.payload);
   yield put(categoriesRequest());
 }
 
 function* deleteCategories(action) {
-  yield axios.delete(`http://localhost:3001/categories/${action.payload.id}`);
+  console.log(action.payload.id);
+  yield requestAxios('delete', 'categories', action.payload.id);
   yield put(categoriesRequest());
 }
 
