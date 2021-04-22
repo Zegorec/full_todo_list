@@ -19,7 +19,7 @@ function* postCategories(action) {
 }
 
 function* deleteCategories(action) {
-  yield axios.delete(`http://localhost:3001/categories/${action.payload}`);
+  yield axios.delete(`http://localhost:3001/categories/${action.payload.id}`);
   yield put(categoriesRequest());
 }
 

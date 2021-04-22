@@ -1,28 +1,4 @@
 {
-  "todos": [
-    {
-      "id": "todo__78767",
-      "content": "1234",
-      "status": false,
-      "category": "category__82493",
-      "colors": "Green"
-    }
-  ],
-  "categories": [
-    {
-      "id": "category__82493",
-      "category": "Worck",
-      "colors": "Green"
-    },
-    {
-      "id": "category__77975",
-      "category": "Job",
-      "colors": "Purple"
-    },
-    {
-      "id": "category__51667",
-      "category": "1234",
-      "colors": "Blue"
-    }
-  ]
+  "todos": [],
+  "categories": []
 }

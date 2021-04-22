@@ -1,4 +1,4 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, call } from 'redux-saga/effects';
 import axios from 'axios';
 
 import { todosSuccess, actions, todosRequest } from './todosAction';
@@ -29,7 +29,12 @@ function* putTodos(action) {
 }
 
 function* deleteAllTodos(action) {
-  yield axios.delete(`http://localhost:3001/todos/${action.payload}`);
+  const todos = yield action.payload.todos.filter(
+    (elem) => elem.category === action.payload.id
+  );
+  yield todos.map((elem) =>
+    axios.delete(`http://localhost:3001/todos/${elem.id}`)
+  );
   yield put(todosRequest());
 }
 

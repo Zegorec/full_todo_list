@@ -11,7 +11,12 @@ export const EditorCategory = ({ todos, chosenCategory }) => {
   const dispatch = useDispatch();
 
   const onClickDelete = () => {
-    dispatch(deleteAll(chosenCategory[0].id));
+    dispatch(
+      deleteAll({
+        id: chosenCategory[0].id,
+        todos: todos,
+      })
+    );
   };
 
   return (
@@ -51,6 +56,8 @@ export const EditorCategory = ({ todos, chosenCategory }) => {
               content={elem.content}
               status={elem.status}
               editor={1}
+              category={elem.category}
+              colors={elem.colors}
             />
           );
         })}

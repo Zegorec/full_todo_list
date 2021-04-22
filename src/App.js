@@ -16,10 +16,10 @@ function App() {
   );
   const { todos, isLoadingTodos, sort } = useSelector(todosSelector);
 
-  const fetchTodos = () => {
+  useEffect(() => {
     dispatch(todosRequest());
     dispatch(categoriesRequest());
-  };
+  }, []);
 
   return isLoadingTodos && isLoadingCategories ? (
     <div className="App">
@@ -27,7 +27,6 @@ function App() {
     </div>
   ) : (
     <div className="App">
-      <button onClick={fetchTodos}>Получить данные</button>
       <Route path="/" exact>
         <TodoList
           todos={
