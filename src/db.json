@@ -1,4 +1,49 @@
 {
-  "todos": [],
-  "categories": []
+  "todos": [
+    {
+      "id": "todo__64319",
+      "content": "Eat",
+      "status": true,
+      "category": "category__3894",
+      "colors": "Red"
+    },
+    {
+      "id": "todo__42631",
+      "content": "Job",
+      "status": false,
+      "category": "category__30327",
+      "colors": "Yellow"
+    },
+    {
+      "id": "todo__76474",
+      "content": "Learn js",
+      "status": false,
+      "category": "category__30327",
+      "colors": "Yellow"
+    },
+    {
+      "id": "todo__91129",
+      "content": "Buy compucter",
+      "status": true,
+      "category": "category__14377",
+      "colors": "Green"
+    }
+  ],
+  "categories": [
+    {
+      "id": "category__3894",
+      "category": "Home",
+      "colors": "Red"
+    },
+    {
+      "id": "category__30327",
+      "category": "Work",
+      "colors": "Yellow"
+    },
+    {
+      "id": "category__14377",
+      "category": "Shop",
+      "colors": "Green"
+    }
+  ]
 }

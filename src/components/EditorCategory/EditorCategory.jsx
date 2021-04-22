@@ -5,9 +5,12 @@ import { Todo } from '../Todo/Todo';
 import { TodoInput } from '../TodoInput/TodoInput';
 import { Link } from 'react-router-dom';
 import { deleteAll } from '../../redux/categories/categoriesAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { todosSelector } from '../../redux/todos/todosSelector';
 
-export const EditorCategory = ({ todos, chosenCategory }) => {
+export const EditorCategory = ({ chosenCategory }) => {
+  const { todos } = useSelector(todosSelector);
+
   const dispatch = useDispatch();
 
   const onClickDelete = () => {

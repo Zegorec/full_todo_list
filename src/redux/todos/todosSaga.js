@@ -1,5 +1,4 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
-import axios from 'axios';
+import { takeEvery, put } from 'redux-saga/effects';
 
 import { todosSuccess, actions, todosRequest } from './todosAction';
 import { requestAxios } from '../../API/api';
