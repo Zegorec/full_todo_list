@@ -3,20 +3,18 @@ import { TodoList } from './components/TodoList/TodoList';
 import { EditorCategory } from './components/EditorCategory/EditorCategory';
 import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataSelector } from './redux/categories/categoriesSelector';
+import { categoriesSelector } from './redux/categories/categoriesSelector';
+import { todosSelector } from './redux/todos/todosSelector';
 import { todosRequest } from './redux/todos/todosAction';
 import { categoriesRequest } from './redux/categories/categoriesAction';
 
 function App() {
   const dispatch = useDispatch();
-  const {
-    todos,
-    isLoadingTodos,
-    sort,
-    categories,
-    chosenCategory,
-    isLoadingCategories,
-  } = useSelector(dataSelector);
+  const { categories, chosenCategory, isLoadingCategories } = useSelector(
+    categoriesSelector
+  );
+
+  const { todos, isLoadingTodos, sort } = useSelector(todosSelector);
 
   const fetchTodos = () => {
     dispatch(todosRequest());
