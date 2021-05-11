@@ -1,12 +1,15 @@
 import s from './Categories.module.css';
 
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Category } from '../Category/Category';
 import { addCategory } from '../../redux/categories/categoriesAction';
 import { choseTodos } from '../../redux/todos/todosAction';
+import { categoriesSelector } from '../../redux/categories/categoriesSelector';
 
-export const Categories = ({ categories, todos }) => {
+export const Categories = () => {
+  const { categories } = useSelector(categoriesSelector);
+
   const dispatch = useDispatch();
   const [categoryName, setCategoryName] = useState('');
   const [colors, setColors] = useState('Black');
@@ -80,9 +83,6 @@ export const Categories = ({ categories, todos }) => {
             key={elem.id}
             category={elem.category}
             colors={elem.colors}
-            total={
-              todos.filter((todo) => todo.category === elem.category).length
-            }
             id={elem.id}
           />
         );

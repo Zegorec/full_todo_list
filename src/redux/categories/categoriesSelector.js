@@ -1,10 +1,13 @@
-export const dataSelector = ({ todos, categories }) => {
+export const categoriesSelector = ({ categories }) => {
   return {
-    todos: todos.todos,
-    sort: todos.sort,
-    isLoadingTodos: todos.isLoadingTodos,
     categories: categories.categories,
-    chosenCategory: categories.chosenCategory,
-    isLoadingCategories: categories.isLoadingCategories,
   };
+};
+
+export const chosenCategorySelector = ({ categories }) => {
+  return { chosenCategory: categories.chosenCategory };
+};
+
+export const isLoadingCategoriesSelector = ({ categories }) => {
+  return { isLoadingCategories: categories.isLoadingCategories };
 };

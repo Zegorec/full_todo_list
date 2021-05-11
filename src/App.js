@@ -3,25 +3,27 @@ import { TodoList } from './components/TodoList/TodoList';
 import { EditorCategory } from './components/EditorCategory/EditorCategory';
 import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { dataSelector } from './redux/categories/categoriesSelector';
+import {
+  categoriesSelector,
+  chosenCategorySelector,
+  isLoadingCategoriesSelector,
+} from './redux/categories/categoriesSelector';
+import { isLoadingTodosSelector } from './redux/todos/todosSelector';
 import { todosRequest } from './redux/todos/todosAction';
 import { categoriesRequest } from './redux/categories/categoriesAction';
+import { useEffect } from 'react';
 
 function App() {
   const dispatch = useDispatch();
-  const {
-    todos,
-    isLoadingTodos,
-    sort,
-    categories,
-    chosenCategory,
-    isLoadingCategories,
-  } = useSelector(dataSelector);
+  const { categories } = useSelector(categoriesSelector);
+  const { isLoadingCategories } = useSelector(isLoadingCategoriesSelector);
+  const { isLoadingTodos } = useSelector(isLoadingTodosSelector);
+  const { chosenCategory } = useSelector(chosenCategorySelector);
 
-  const fetchTodos = () => {
+  useEffect(() => {
     dispatch(todosRequest());
     dispatch(categoriesRequest());
-  };
+  }, [dispatch]);
 
   return isLoadingTodos && isLoadingCategories ? (
     <div className="App">
@@ -29,21 +31,11 @@ function App() {
     </div>
   ) : (
     <div className="App">
-      <button onClick={fetchTodos}>Получить данные</button>
       <Route path="/" exact>
-        <TodoList
-          todos={
-            sort === 'All'
-              ? todos
-              : todos.filter((elem) => elem.category === sort)
-          }
-          categories={categories}
-          sort={sort}
-        />
+        <TodoList />
       </Route>
       <Route path="/Editor" exact>
         <EditorCategory
-          todos={todos}
           chosenCategory={categories.filter(
             (elem) => elem.id === chosenCategory
           )}

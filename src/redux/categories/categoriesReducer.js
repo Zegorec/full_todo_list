@@ -7,24 +7,10 @@ const initStore = {
 };
 
 export const categoriesReducer = (state = initStore, action) => {
-  if (action.type === actions.ADD) {
-    return {
-      ...state,
-      categories: [...state.categories, action.payload],
-    };
-  }
   if (action.type === actions.CHOSE) {
     return {
       ...state,
       chosenCategory: action.payload,
-    };
-  }
-  if (action.type === actions.DELETEALL) {
-    return {
-      ...state,
-      categories: [
-        ...state.categories.filter((elem) => elem.id !== action.payload),
-      ],
     };
   }
   if (action.type === actions.CATEGORIES_REQUEST) {
